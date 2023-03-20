@@ -1,0 +1,130 @@
+body {
+    overflow-y: scroll;
+}
+
+
+.film-content {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    opacity: 0;
+    transition: opacity 0.2s ease-in;
+}
+
+.film-content.show {
+    opacity: 1;
+}
+
+.film-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.film {
+    margin: 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.film img {
+    width: 200px;
+    height: 270px;
+    border-radius: 5px;
+}
+
+.film-info {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    font-family: 'Public Sans', sans-serif;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.film-info.show {
+    opacity: 1;
+}
+
+.film-info:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    background-color: #222222;
+    opacity: 0.85;
+}
+
+.film-info>* {
+    z-index: 10;
+}
+
+.film-info .title {
+    font-style: italic;
+    font-size: 1.4rem;
+    text-align: center;
+    margin: 20px 10px 10px;
+    font-weight: 600;
+}
+
+.film-info {
+    font-size: 1.1rem;
+    color: #F4EEE5;
+}
+
+
+.film-btn {
+    margin-top: 30px;
+    font-weight: 300;
+}
+
+.film-clip {
+    color: #F4EEE5;
+    text-decoration: none;
+}
+
+.film-clip:hover button {
+    color: #fd5400;
+    background-color: #fff;
+}
+
+/* media query */
+@media screen and (max-width:700px) {
+    .film-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+    }
+}
+
+@media screen and (max-width:400px) {
+    .film-container {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(1, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+    }
+
+    .film img {
+        width: 300px;
+        height: auto;
+    }
+
+}
